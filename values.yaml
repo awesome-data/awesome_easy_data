@@ -81,3 +81,28 @@ affinity: {}
 jupyterhub:
   proxy:
     secretToken: 53386c9e83539ee4c8ab3453ca29db04832342ff70b5cfe4c4b9cfbd624194fc
+  singleuser:
+    # Lets me use jupyterlab gui which is more new school. Also has tabs. Wew.
+    defaultUrl: "/lab"
+
+    image:
+      # https://zero-to-jupyterhub.readthedocs.io/en/latest/customizing/user-environment.html#choose-and-use-an-existing-docker-image
+
+      # name: jupyter/datascience-notebook
+      # tag: 177037d09156 
+      name: jupyter/all-spark-notebook 
+      # at some point I was using an incorrect tag which was causing lag on startup.
+      tag: 6d42503c684f 
+
+      # Adding this because, for some reason, downloading was taking far too long
+      imagepullpolicy: IfNotPresent
+
+      # Adding this from 
+      # storage:
+      #   extraVolumes:
+      #     - name: jupyterhub-shared
+      #       persistentVolumeClaim:
+      #         claimName: jupyterhub-shared-volume
+      #   extraVolumeMounts:
+      #     - name: jupyterhub-shared
+      #       mountPath: /home/shared

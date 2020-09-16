@@ -24,5 +24,12 @@ appVersion: 1.16.0
 
 dependencies:
   - name: jupyterhub
-    version: "v0.8.0"
+    version: "v0.9.1"
     repository: 'https://jupyterhub.github.io/helm-chart/'
+  # - name: spark
+    # version: "0.1.0"
+    # repository: 'https://gradiant.github.io/charts/'
+      #https://hub.helm.sh/charts/cloudposse/superset
+
+      #https://hub.helm.sh/charts/gradiant/spark-standalone
+
