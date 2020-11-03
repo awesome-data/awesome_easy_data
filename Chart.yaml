@@ -31,5 +31,10 @@ dependencies:
     # repository: 'https://gradiant.github.io/charts/'
       #https://hub.helm.sh/charts/cloudposse/superset
 
-      #https://hub.helm.sh/charts/gradiant/spark-standalone
+      # https://hub.helm.sh/charts/gradiant/spark-standalone
+      # https://hub.helm.sh/charts/incubator/kafka
+      # https://hub.helm.sh/charts/dask/daskhub
+      # https://hub.helm.sh/charts/dask/dask
+      # https://hub.helm.sh/charts/incubator/druid
+      # https://hub.helm.sh/charts/t3n/elasticsearch
 
