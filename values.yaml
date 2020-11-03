@@ -84,7 +84,11 @@ jupyterhub:
   singleuser:
     # Lets me use jupyterlab gui which is more new school. Also has tabs. Wew.
     defaultUrl: "/lab"
-
+    extraEnv: 
+      GRANT_SUDO: "yes"
+      NOTEBOOK_ARGS: "--allow-root"
+    uid: 0
+    cmd: start-singleuser.sh
     image:
       # https://zero-to-jupyterhub.readthedocs.io/en/latest/customizing/user-environment.html#choose-and-use-an-existing-docker-image
 
@@ -97,12 +101,20 @@ jupyterhub:
       # Adding this because, for some reason, downloading was taking far too long
       imagepullpolicy: IfNotPresent
 
+    storage:
+
+      extraVolumes:
+    #   - name: spark-files
+    #     persistentVolumeClaim:
+    #       claimName: test-pv-claim
+      - name: big-data
+        hostPath: {path: "/data"}
+
+      extraVolumeMounts:
+    #   - name: spark-files
+    #     mountPath: "/home/Data"
+      - name: big-data
+        mountPath: "/data"
+    #     # readOnly: true
+
       # Adding this from 
-      # storage:
-      #   extraVolumes:
-      #     - name: jupyterhub-shared
-      #       persistentVolumeClaim:
-      #         claimName: jupyterhub-shared-volume
-      #   extraVolumeMounts:
-      #     - name: jupyterhub-shared
-      #       mountPath: /home/shared
